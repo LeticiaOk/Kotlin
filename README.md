@@ -26,14 +26,16 @@ fun main() {
 > Não é possível alterar uma variável somente leitura depois de ter atribuído um valor a ela.
 
 ```Kotlin
-val popcorn = 5    // There are 5 boxes of popcorn
-val hotdog = 7     // There are 7 hotdogs
-var customers = 10 // There are 10 customers in the queue
+fun main() { 
+    val popcorn = 5    // There are 5 boxes of popcorn
+    val hotdog = 7     // There are 7 hotdogs
+    var customers = 10 // There are 10 customers in the queue
 
-// Some customers leave the queue
-customers = 8
-println(customers)
-// 8
+    // Some customers leave the queue
+    customers = 8
+    println(customers)
+    // 8
+}
 ```
 
 > Variáveis ​​podem ser declaradas fora da main() função no começo do seu programa. Variáveis ​​declaradas dessa forma são ditas declaradas no nível superior .
@@ -47,12 +49,14 @@ println(customers)
 - Você pode usar expressões de modelo para acessar dados armazenados em variáveis ​​e outros objetos e convertê-los em strings.
 
 ```Kotlin
-val customers = 10
-println("There are $customers customers")
-// There are 10 customers
+fun main() { 
+    val customers = 10
+    println("There are $customers customers")
+    // There are 10 customers
 
-println("There are ${customers + 1} customers")
-// There are 11 customers
+    println("There are ${customers + 1} customers")
+    // There are 11 customers
+}
 ```
 
 - Você notará que não há nenhum tipo declarado para variáveis. O Kotlin inferiu o tipo em si: Int.
@@ -86,3 +90,6 @@ No total, Kotlin tem os seguintes tipos básicos:
 | **Booleanos**             | Boolean                         | `val isEnabled: Boolean = true`               |
 | **Caracteres**           | Char                            | `val separator: Char = ','`                   |
 | **Strings**              | String                          | `val message: String = "Hello, world!"`       |
+
+
+
