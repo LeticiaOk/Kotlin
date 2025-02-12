@@ -181,3 +181,12 @@ fun main() {
 ```
 
 > ``.first()`` e ``.last()`` functions são exemplos de **funções de extensão **. Para chamar uma função de extensão em um objeto, escreva o nome da função após o objeto anexado a um ponto "."
+> 
+
+```Kotlin
+fun main() { 
+    val readOnlyShapes = listOf("triangle", "square", "circle")
+    println("This list has ${readOnlyShapes.count()} items")
+    // This list has 3 items
+}
+```
