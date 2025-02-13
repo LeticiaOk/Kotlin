@@ -161,7 +161,7 @@ val shapesLocked: List<String> = shapes
 ```
 > Isso também é chamado de **fundição**.
 
-As listas são ordenadas, portanto, para acessar um item em uma lista, use o operador de acessado indexado []:
+As listas são ordenadas, portanto, para acessar um item em uma lista, use o operador de acesso indexado []:
 
 ```Kotlin
 fun main() { 
@@ -180,13 +180,98 @@ fun main() {
 }
 ```
 
-> ``.first()`` e ``.last()`` functions são exemplos de **funções de extensão **. Para chamar uma função de extensão em um objeto, escreva o nome da função após o objeto anexado a um ponto "."
+> ``.first()`` e ``.last()`` functions são exemplos de **funções de extensão**. Para chamar uma função de extensão em um objeto, escreva o nome da função após o objeto anexado a um ponto "."
 > 
+
+Para obter o número de itens em uma lista, use a ``.count()`` function:
 
 ```Kotlin
 fun main() { 
     val readOnlyShapes = listOf("triangle", "square", "circle")
     println("This list has ${readOnlyShapes.count()} items")
     // This list has 3 items
+}
+```
+Para verificar se um item está em uma lista, use o `in` operador:
+
+```Kotlin
+val readOnlyShapes = listOf("triangle", "square", "circle")
+println("circle" in readOnlyShapes)
+//true
+```
+
+Para adicionar ou remover itens de uma lista mutável, use as funções `.add()` e `.remove()` respectivamente:
+
+```Kotlin
+fun main() { 
+    val shapes: MutableList<String> = mutableListOf("triangle", "square", "circle")
+    // Add "pentagon" to the list
+    shapes.add("pentagon") 
+    println(shapes)  
+    // [triangle, square, circle, pentagon]
+
+    // Remove the first "pentagon" from the list
+    shapes.remove("pentagon") 
+    println(shapes)  
+    // [triangle, square, circle]
+}
+```
+
+## Set
+Enquanto as listas são ordenados e permitem itens duplicados, os conjuntos **não são ordenados** e armazenam apenas itens **únicos**.
+
+Para criar um conjunto somente leitura `(Set)` use a `setOf` function.
+Para criar um conjunto mutável `MutableSet`, use a `mutableSetOf` function.
+
+Ao criar conjuntos, o Kotlin pode inferir o tipo de itens armazenados. Para declrarar o tipo explicitamente, adicione o tipo entre colchetes angulares `<>` após a declaração do conjunto.
+
+```Kotlin
+fun main() {
+    // Read-only set
+    val readOnlyFruit = setOf("apple", "banana", "cherry", "cherry")
+    // Mutable set with explicit type declaration
+    val fruit: MutableSet<String> = mutableSetOf("apple", "banana", "cherry", "cherry")
+
+    println(readOnlyFruit)
+    // [apple, banana, cherry]
+}
+```
+Você pode ver no exemplo anterior que, como os conjuntos contêm apenas elementos único, o "cherry" item duplicado é descartado.
+
+> 📖 Para evitar modificações indesejadas, você pode criar uma visualização somente leitura de um conjunto mutável atribuindo-a a Set:
+
+```Kotlin
+val fruit: MutableSet<String> = mutableSetOf("apple", "banana", "cherry", "cherry")
+val fruitLocked: Set<String> = fruit
+```
+>  💚 Como os conjuntos **não são ordenados**, você não pode acessar um item em um índice específico.
+
+Para obter o número de itens em um conjunto, use a `.count()` function:
+```Kotlin
+fun main() { 
+    val readOnlyFruit = setOf("apple", "banana", "cherry", "cherry")
+    println("This set has ${readOnlyFruit.count()} items")
+    // This set has 3 items
+}
+```
+Para verificar se um item está em um conjunto, use o `in` operator:
+```Kotlin
+fun main() {
+    val readOnlyFruit = setOf("apple", "banana", "cherry", "cherry")
+    println("banana" in readOnlyFruit)
+    // true
+}
+```
+
+Para adicionar ou remover itens de um conjunto mutável, usa as funções `.add()` e `remove()` respectivamente:
+
+```Kotlin
+fun main() { 
+    val fruit: MutableSet<String> = mutableSetOf("apple", "banana", "cherry", "cherry")
+    fruit.add("dragonfruit")    // Add "dragonfruit" to the set
+    println(fruit)              // [apple, banana, cherry, dragonfruit]
+
+    fruit.remove("dragonfruit") // Remove "dragonfruit" from the set
+    println(fruit)              // [apple, banana, cherry]
 }
 ```
